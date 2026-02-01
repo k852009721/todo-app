@@ -5,7 +5,7 @@ import { useI18n } from 'vue-i18n'
 import draggable from 'vuedraggable'
 import type { SupportedLocale } from './i18n'
 import { useAuth } from './useAuth'
-import { todosApi, type TodoData } from './api'
+import { todosApi } from './api'
 import AuthForm from './components/AuthForm.vue'
 
 const { t, locale } = useI18n()
