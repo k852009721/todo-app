@@ -1,0 +1,41 @@
+{
+    "auth": {
+        "login": "로그인",
+        "register": "회원가입",
+        "logout": "로그아웃",
+        "email": "이메일",
+        "password": "비밀번호",
+        "noAccount": "계정이 없으신가요?",
+        "hasAccount": "이미 계정이 있으신가요?",
+        "welcomeBack": "다시 오셨군요!",
+        "createAccount": "계정 만들기",
+        "loginSubtitle": "로그인하여 기기 간에 할 일을 동기화하세요.",
+        "registerSubtitle": "오늘부터 할 일 정리를 시작하세요!"
+    },
+    "app": {
+        "title": "내 할 일",
+        "subtitle": "Vue로 정성껏 그렸습니다.",
+        "empty": "할 일이 없어요! 놀러 가세요!",
+        "noFiltered": "{filter} 작업을 찾을 수 없습니다."
+    },
+    "input": {
+        "placeholder": "무엇을 해야 하나요?",
+        "due": "마감일:",
+        "addButton": "추가"
+    },
+    "filter": {
+        "all": "전체",
+        "active": "진행 중",
+        "completed": "완료"
+    },
+    "groups": {
+        "today": "오늘",
+        "upcoming": "예정",
+        "someday": "언젠가 / 아마도",
+        "pastDue": "기한 초과"
+    },
+    "actions": {
+        "save": "저장",
+        "cancel": "취소"
+    }
+}

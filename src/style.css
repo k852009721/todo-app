@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@theme {
+  --font-hand: "Gochi Hand", "Indie Flower", cursive;
+  --font-sans: "Inter", system-ui, sans-serif;
+
+  --color-paper: #fffdf5;
+  --color-pencil: #333333;
+  --color-highlighter: #ff6b6b;
+  --color-accent: #ffd93d;
+}
+
+@layer base {
+  body {
+    @apply bg-paper text-pencil font-sans;
+    background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  h1, h2, h3 {
+    @apply font-hand;
+  }
+}
+
+@layer components {
+  .hand-drawn-border {
+    @apply border-2 border-pencil;
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  }
+
+  .hand-drawn-button {
+    @apply px-4 py-2 border-2 border-pencil font-hand transition-all active:scale-95;
+    border-radius: 120px 20px 100px 30px/30px 100px 20px 120px;
+  }
+
+  .highlighter-effect {
+    @apply relative inline-block;
+  }
+
+  .highlighter-effect::after {
+    content: "";
+    @apply absolute -bottom-1 left-0 w-full h-2 bg-highlighter/30 -z-10;
+    transform: skew(-15deg) rotate(-2deg);
+  }
+}

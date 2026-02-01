@@ -1,0 +1,41 @@
+{
+    "auth": {
+        "login": "ログイン",
+        "register": "新規登録",
+        "logout": "ログアウト",
+        "email": "メールアドレス",
+        "password": "パスワード",
+        "noAccount": "アカウントをお持ちでないですか？",
+        "hasAccount": "すでにアカウントをお持ちですか？",
+        "welcomeBack": "おかえりなさい！",
+        "createAccount": "アカウント作成",
+        "loginSubtitle": "ログインしてタスクをデバイス間で同期しましょう。",
+        "registerSubtitle": "今日からタスク管理を始めましょう！"
+    },
+    "app": {
+        "title": "マイタスク",
+        "subtitle": "Vue で愛を込めて描きました。",
+        "empty": "やることはまだありません、遊びに行こう！",
+        "noFiltered": "{filter}タスクが見つかりません。"
+    },
+    "input": {
+        "placeholder": "何をしますか？",
+        "due": "期限：",
+        "addButton": "追加"
+    },
+    "filter": {
+        "all": "すべて",
+        "active": "進行中",
+        "completed": "完了"
+    },
+    "groups": {
+        "today": "今日",
+        "upcoming": "今後の予定",
+        "someday": "いつか / たぶん",
+        "pastDue": "期限切れ"
+    },
+    "actions": {
+        "save": "保存",
+        "cancel": "キャンセル"
+    }
+}

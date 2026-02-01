@@ -1,0 +1,41 @@
+{
+  "auth": {
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout",
+    "email": "Email",
+    "password": "Password",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?",
+    "welcomeBack": "Welcome Back!",
+    "createAccount": "Create Account",
+    "loginSubtitle": "Sign in to sync your tasks across devices.",
+    "registerSubtitle": "Start organizing your tasks today."
+  },
+  "app": {
+    "title": "My Tasks",
+    "subtitle": "Drawn with love by Vue.",
+    "empty": "Nothing to do yet! Go play!",
+    "noFiltered": "No {filter} tasks found."
+  },
+  "input": {
+    "placeholder": "What needs to be done?",
+    "due": "Due:",
+    "addButton": "Add Item"
+  },
+  "filter": {
+    "all": "All",
+    "active": "Active",
+    "completed": "Completed"
+  },
+  "groups": {
+    "today": "Today",
+    "upcoming": "Upcoming",
+    "someday": "Someday / Maybe",
+    "pastDue": "Past Due"
+  },
+  "actions": {
+    "save": "Save",
+    "cancel": "Cancel"
+  }
+}

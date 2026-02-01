@@ -1,0 +1,41 @@
+{
+    "auth": {
+        "login": "登入",
+        "register": "註冊",
+        "logout": "登出",
+        "email": "電子郵件",
+        "password": "密碼",
+        "noAccount": "還沒有帳號嗎？",
+        "hasAccount": "已經有帳號了嗎？",
+        "welcomeBack": "歡迎回來！",
+        "createAccount": "建立帳號",
+        "loginSubtitle": "登入以在不同裝置間同步您的任務。",
+        "registerSubtitle": "今天就開始整理您的任務吧！"
+    },
+    "app": {
+        "title": "我的任務",
+        "subtitle": "用 Vue 精心手繪。",
+        "empty": "目前沒有待辦事項，休息一下吧！",
+        "noFiltered": "找不到任何{filter}任務。"
+    },
+    "input": {
+        "placeholder": "有什麼事要做？",
+        "due": "到期日：",
+        "addButton": "新增項目"
+    },
+    "filter": {
+        "all": "全部",
+        "active": "進行中",
+        "completed": "已完成"
+    },
+    "groups": {
+        "today": "今天",
+        "upcoming": "即將到來",
+        "someday": "未定 / 靈感",
+        "pastDue": "已逾期"
+    },
+    "actions": {
+        "save": "儲存",
+        "cancel": "取消"
+    }
+}
