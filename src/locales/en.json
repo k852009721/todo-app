@@ -14,7 +14,7 @@
   },
   "app": {
     "title": "My Tasks",
-    "subtitle": "Drawn with love by Vue.",
+    "subtitle": "Organize your day, your way.",
     "empty": "Nothing to do yet! Go play!",
     "noFiltered": "No {filter} tasks found."
   },

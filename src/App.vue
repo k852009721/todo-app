@@ -48,6 +48,7 @@ const newTodoDate = ref('')
 const todos = ref<Todo[]>([])
 const currentFilter = ref<FilterStatus>('all')
 const isLoading = ref(false)
+const isComposing = ref(false) // For IME input handling
 
 // Editing State
 const editingId = ref<number | null>(null)
@@ -56,8 +57,9 @@ const editingDate = ref('')
 const editInputRef = ref<HTMLInputElement | HTMLInputElement[] | null>(null)
 
 // Load todos from API
-const loadTodos = async () => {
-  if (!isAuthenticated.value) return
+const loadTodos = async (force = false) => {
+  // Skip auth check if forced (e.g., right after login)
+  if (!force && !isAuthenticated.value) return
   isLoading.value = true
   try {
     const data = await todosApi.getAll()
@@ -85,8 +87,17 @@ onMounted(() => {
   }
 })
 
+// Watch for authentication state changes (handles login)
+watch(isAuthenticated, (newValue, oldValue) => {
+  if (newValue && !oldValue) {
+    // User just logged in, load their todos
+    loadTodos(true)
+  }
+})
+
 const onAuthenticated = () => {
-  loadTodos()
+  // This is now a backup - the watch should handle it
+  loadTodos(true)
 }
 
 const handleLogout = () => {
@@ -95,6 +106,8 @@ const handleLogout = () => {
 }
 
 const addTodo = async () => {
+  // Don't add if still composing (IME input)
+  if (isComposing.value) return
   if (!newTodo.value.trim()) return
   try {
     const created = await todosApi.create(newTodo.value, newTodoDate.value || undefined)
@@ -248,9 +261,9 @@ const groupedTodos = computed(() => {
   
   <!-- Main App (when logged in) -->
   <div v-else class="min-h-screen p-8 sm:p-20 flex flex-col items-center">
-    <header class="mb-12 text-center relative w-full">
-      <!-- Language Switcher -->
-      <div class="absolute right-0 top-0 flex items-center gap-4">
+    <header class="mb-12 text-center w-full">
+      <!-- Language Switcher & Logout (responsive positioning) -->
+      <div class="flex justify-end items-center gap-4 mb-4 sm:mb-0 sm:absolute sm:right-0 sm:top-0 relative">
         <select 
           v-model="locale"
           class="bg-transparent font-hand text-lg border border-pencil rounded px-2 py-1 cursor-pointer focus:outline-none hover:bg-white/50 transition-colors"
@@ -281,7 +294,9 @@ const groupedTodos = computed(() => {
         <div class="flex-1 w-full space-y-2">
           <input 
             v-model="newTodo"
-            @keyup.enter="addTodo"
+            @keydown.enter="addTodo"
+            @compositionstart="isComposing = true"
+            @compositionend="isComposing = false"
             :placeholder="t('input.placeholder')"
             class="w-full px-4 py-2 border-b-2 border-pencil focus:outline-none bg-transparent font-hand text-2xl"
           />
@@ -387,13 +402,13 @@ const groupedTodos = computed(() => {
                 <template v-else>
                   <button 
                     @click="startEdit(todo)"
-                    class="text-pencil opacity-0 group-hover:opacity-100 transition-opacity font-hand text-xl px-2 hover:scale-110"
+                    class="text-pencil opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity font-hand text-xl px-2 hover:scale-110"
                   >
                     ✎
                   </button>
                   <button 
                     @click="removeTodo(todo.id)"
-                    class="text-red-400 opacity-0 group-hover:opacity-100 transition-opacity font-hand text-xl px-2 hover:scale-110"
+                    class="text-red-400 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity font-hand text-xl px-2 hover:scale-110"
                   >
                     ✕
                   </button>

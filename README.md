@@ -1,5 +1,151 @@
-# Vue 3 + TypeScript + Vite
+# ✏️ Hand-Drawn Todo List
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+一個手繪風格的待辦事項應用，使用 Vue 3 + Express + SQLite 建構，支援多語言與跨裝置同步。
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+![Preview](./public/og-image.png)
+
+## ✨ 功能特色
+
+- 🎨 **手繪風格 UI** — 獨特的素描風格介面設計
+- 🔐 **使用者認證** — JWT 登入註冊，資料隔離
+- 🔄 **跨裝置同步** — SQLite 資料庫持久化存儲
+- 🌏 **多語言支援** — 繁中、英文、日文、韓文
+- 📱 **響應式設計** — 桌面與行動裝置最佳化
+- 🖱️ **拖拽排序** — 直覺的任務重新排序
+- 📅 **時間分組** — 今天、即將到來、未定、已逾期
+
+---
+
+## 🏗️ 專案架構
+
+```
+todo-app/
+├── src/                    # 前端源碼 (Vue 3)
+│   ├── components/         # Vue 元件
+│   │   └── AuthForm.vue    # 登入/註冊表單
+│   ├── locales/            # i18n 翻譯檔
+│   │   ├── en.json
+│   │   ├── zh-TW.json
+│   │   ├── ja.json
+│   │   └── ko.json
+│   ├── App.vue             # 主應用元件
+│   ├── api.ts              # API 服務層
+│   ├── useAuth.ts          # 認證狀態管理
+│   ├── i18n.ts             # i18n 設定
+│   └── main.ts             # 應用入口
+│
+├── server/                 # 後端源碼 (Express)
+│   ├── src/
+│   │   ├── db/             
+│   │   │   └── index.ts    # SQLite 資料庫初始化
+│   │   ├── middleware/
+│   │   │   └── auth.ts     # JWT 認證中介層
+│   │   ├── routes/
+│   │   │   ├── auth.ts     # 認證 API (/api/auth/*)
+│   │   │   └── todos.ts    # 任務 API (/api/todos/*)
+│   │   └── index.ts        # Express 伺服器入口
+│   ├── data/               # SQLite 資料庫檔案 (gitignore)
+│   └── package.json
+│
+├── public/                 # 靜態資源
+├── DEPLOY.md               # Railway 部署指南
+└── package.json
+```
+
+---
+
+## 🛠️ 技術棧
+
+### 前端
+| 技術 | 用途 |
+|------|------|
+| Vue 3 | 前端框架（Composition API）|
+| TypeScript | 型別安全 |
+| Tailwind CSS 4 | 樣式框架 |
+| Vite | 開發建構工具 |
+| vue-i18n | 多語言支援 |
+| vuedraggable | 拖拽排序 |
+| @unhead/vue | SEO meta 管理 |
+
+### 後端
+| 技術 | 用途 |
+|------|------|
+| Express | Web 框架 |
+| TypeScript | 型別安全 |
+| better-sqlite3 | SQLite 資料庫 |
+| jsonwebtoken | JWT 認證 |
+| bcryptjs | 密碼加密 |
+
+---
+
+## 🚀 本機開發
+
+### 前置需求
+
+- Node.js 20+ 
+- npm 或 yarn
+
+### 安裝依賴
+
+```bash
+# 前端
+cd todo-app
+npm install
+
+# 後端
+cd server
+npm install
+```
+
+### 啟動開發伺服器
+
+需要同時啟動前端和後端，建議開兩個終端機視窗：
+
+**終端機 1 — 後端 API（port 3001）**
+```bash
+cd todo-app/server
+npm run dev
+```
+
+**終端機 2 — 前端（port 5173）**
+```bash
+cd todo-app
+npm run dev
+```
+
+### 開啟瀏覽器
+
+前往 http://localhost:5173
+
+---
+
+## 📡 API 端點
+
+### 認證
+
+| 方法 | 路徑 | 說明 |
+|------|------|------|
+| POST | `/api/auth/register` | 註冊新帳號 |
+| POST | `/api/auth/login` | 登入取得 token |
+
+### 任務（需認證）
+
+| 方法 | 路徑 | 說明 |
+|------|------|------|
+| GET | `/api/todos` | 取得所有任務 |
+| POST | `/api/todos` | 新增任務 |
+| PUT | `/api/todos/:id` | 更新任務 |
+| DELETE | `/api/todos/:id` | 刪除任務 |
+| PUT | `/api/todos/reorder` | 批次更新排序 |
+
+---
+
+## 🌐 部署
+
+請參考 [DEPLOY.md](./DEPLOY.md) 了解如何部署到 Railway。
+
+---
+
+## 📝 授權
+
+MIT License

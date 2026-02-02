@@ -14,7 +14,7 @@
     },
     "app": {
         "title": "내 할 일",
-        "subtitle": "Vue로 정성껏 그렸습니다.",
+        "subtitle": "하루를 깔끔하게 정리하세요.",
         "empty": "할 일이 없어요! 놀러 가세요!",
         "noFiltered": "{filter} 작업을 찾을 수 없습니다."
     },

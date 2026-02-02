@@ -14,7 +14,7 @@
     },
     "app": {
         "title": "我的任務",
-        "subtitle": "用 Vue 精心手繪。",
+        "subtitle": "輕鬆整理你的每一天。",
         "empty": "目前沒有待辦事項，休息一下吧！",
         "noFiltered": "找不到任何{filter}任務。"
     },
